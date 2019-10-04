@@ -16,7 +16,7 @@ AppUrlMovie.java：爬取视频需要手动填入视频资源url地址
 
 
 
-AppMovie.java ：爬取视频，需要手动输入B站视频av号，然后把***createConnection()***方法里面成**Cookie**改成自己的，即可自动爬取。
+AppMovie.java ：爬取视频，需要手动输入B站视频av号，然后把createConnection()方法里面成Cookie改成自己的，即可自动爬取。
 
 
 

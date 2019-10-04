@@ -20,10 +20,9 @@ public class AppMovie {
     //文件名称
     private static String title;
     public static void main(String[] args) {
-
         long start = System.currentTimeMillis();
         //输入av号
-        Integer avid = 69936320;
+        Integer avid = 58906853;
         //建立连接，先获取到 cid
         String cidJson = createConnectionToJson(avid);
         Integer cid = JsonGetCid(cidJson);
@@ -34,13 +33,14 @@ public class AppMovie {
     }
 
     // 3-2  建立URL连接请求
-    private static InputStream createInputStream(String movieUrl) {
+    private static InputStream createInputStream(String movieUrl,Integer avid) {
         InputStream inputStream = null;
         long start = System.currentTimeMillis();
         try {
             URL url = new URL(movieUrl);
             URLConnection urlConnection = url.openConnection();
-            urlConnection.setRequestProperty("Referer", "https://www.bilibili.com/video/av58906853");
+            String refererUrl = "https://www.bilibili.com/video/av" + avid;
+            urlConnection.setRequestProperty("Referer",refererUrl );
             urlConnection.setRequestProperty("Sec-Fetch-Mode", "no-cors");
             urlConnection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36");
             urlConnection.setConnectTimeout(10 * 1000);
@@ -72,7 +72,7 @@ public class AppMovie {
         // 根据获取的title 创建文件
         String moviePath = PathUtil.createMoviePath(title);
         //建立连接
-        InputStream inputStream = createInputStream(movieUrl);
+        InputStream inputStream = createInputStream(movieUrl,avid);
         //开始流转换
         IOTransUtil.inputStreamToFile(inputStream, moviePath);
     }
