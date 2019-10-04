@@ -35,7 +35,6 @@ public class AppMovie {
     // 3-2  建立URL连接请求
     private static InputStream createInputStream(String movieUrl,Integer avid) {
         InputStream inputStream = null;
-        long start = System.currentTimeMillis();
         try {
             URL url = new URL(movieUrl);
             URLConnection urlConnection = url.openConnection();
@@ -88,7 +87,7 @@ public class AppMovie {
         Integer cid = (Integer) pageMap.get("cid");
         System.out.println("cid: " + cid);
         //title
-        title = jsonData.getString("title");
+        title = jsonData.getString("title").replace("/","");
         System.out.println("title:" + title);
         return cid;
     }
@@ -113,7 +112,8 @@ public class AppMovie {
         heads.put("Connection", "keep-alive");
 
         //TODO 请在这里填写自己的cookie,没有cookid将会请求不到
-        heads.put("Cookie", "填写自己的cookie");
+        heads.put("Cookie", "buvid3=D56986F6-B5F3-4CB4-9F06-AD2249DABBAF110240infoc; LIVE_BUVID=AUTO3115635914121666; sid=al8wlkag; CURRENT_FNVAL=16; stardustvideo=1; rpdid=|(u~JYRJ~~ku0J'ulYJlmu~Jm; fts=1563591901; UM_distinctid=16c0d5975ab402-01f11862f3fd34-c343162-1fa400-16c0d5975ac7cf; _uuid=C4B6D2BB-7B77-4BED-7A8D-09F1FB99F69364553infoc; im_notify_type_435099730=2; im_notify_type_28569524=0; stardustpgcv=0606; CURRENT_QUALITY=116; im_seqno_28569524=4605; im_local_unread_28569524=0; pgv_pvi=725309440; DedeUserID=28569524; DedeUserID__ckMd5=ec1c9a1d56dcb4cb; SESSDATA=12f3317c%2C1571299325%2C4df3b891; bili_jct=6148bb2fdfcefbabff339bffe404b594; laboratory=1-1; bp_t_offset_0=304444539124544340; flash_player_gray=false; html5_player_gray=false; bp_t_offset_28569524=306356662856769168");
+
         heads.put("Host", "api.bilibili.com");
         heads.put("Sec-Fetch-Mode", "navigate");
         heads.put("Sec-Fetch-Site", "none");

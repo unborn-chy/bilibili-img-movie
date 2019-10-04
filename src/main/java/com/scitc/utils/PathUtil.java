@@ -21,7 +21,7 @@ public class PathUtil {
 
     // 创建视频路径
     public static String createMoviePath(String title) {
-        System.out.println("开始创建图片路径");
+        System.out.println("开始创建视频路径");
         //图片名称
         String movieName = title + ".mp4";
         //创建路径
