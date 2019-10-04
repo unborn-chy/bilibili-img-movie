@@ -4,7 +4,7 @@
 
 AppImg.java：爬取番剧图片，进行下载
 
-![1570187675756](readme_img\1570187675756.png)
+![1570187675756](https://raw.githubusercontent.com/unborn-chy/bilibili-img-movie/master/readme_img/1570187675756.png)
 
 
 
@@ -12,7 +12,7 @@ AppUrlMovie.java：爬取视频需要手动填入视频资源url地址
 
 
 
-![](G:\java\maven\bimg\readme_img\搜狗截图20191004191752.png)
+![](https://raw.githubusercontent.com/unborn-chy/bilibili-img-movie/master/readme_img/%E6%90%9C%E7%8B%97%E6%88%AA%E5%9B%BE20191004191752.png)
 
 
 
