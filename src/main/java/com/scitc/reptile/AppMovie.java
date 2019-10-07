@@ -22,12 +22,12 @@ public class AppMovie {
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         //输入av号
-        Integer avid = 58906853;
+        Integer avid = 69726730;
         //建立连接，先获取到 cid
         String cidJson = createConnectionToJson(avid);
         Integer cid = JsonGetCid(cidJson);
         // 根据cid拼接成完整的请求参数,并执行下载操作
-        uploadMovie(avid, cid);
+        downloadMovie(avid, cid);
         long end = System.currentTimeMillis();
         System.err.println("总共耗时：" + (end - start) / 1000 + "s");
     }
@@ -52,7 +52,7 @@ public class AppMovie {
         return inputStream;
     }
 
-    public static void uploadMovie(Integer avid, Integer cid) {
+    public static void downloadMovie(Integer avid, Integer cid) {
         //qn ： 视频质量         112 -> 高清 1080P+,   80 -> 高清 1080P,   64 -> 高清 720P,  32  -> 清晰 480P,  16 -> 流畅 360P
         // 最高支持 1080p,  1080P+是不支持的
         Integer qn = 80;
